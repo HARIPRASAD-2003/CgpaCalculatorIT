@@ -104,6 +104,12 @@ const handleSemCheck = () => {
   
   return (
     <div className="App">
+      <nav>
+        <div>
+          <a href="https://cgpa-calculator-it.vercel.app/">Sem - 5</a>
+          <a href="https://cgpa-calculator-sem4.vercel.app/">Sem - 4</a>
+        </div>
+      </nav>
       <div><h1>IT Department</h1></div>
       
       <div className='main-container'>

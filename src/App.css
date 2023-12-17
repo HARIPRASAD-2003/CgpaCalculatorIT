@@ -86,6 +86,25 @@ h2 {
   flex-direction: row;
 }
 
+nav {
+  align-self: flex-end;
+  background-color: #007bff; /* Adjust the background color */
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove underlines from links */
+  margin: 0 15px; /* Adjust spacing between links */
+  font-size: 16px; /* Adjust font size */
+}
+
+nav a:hover {
+  text-decoration: none; /* Underline on hover */
+  background-color: #0056b3;
+}
+
 @media only screen and (max-width: 600px) {
   .main-container{
     flex-direction: column;
