@@ -10,7 +10,7 @@ function App() {
   const [sub5, setSub5] = useState(null);
   const [sub6, setSub6] = useState(null);
   const [sub7, setSub7] = useState(null);
-  const grades = ['O', 'A+', 'A', 'B', 'B+', 'F']; // Add more grades as needed
+  const grades = ['O', 'A+', 'A', 'B+', 'B', 'F']; // Add more grades as needed
   const [res, setRes] = useState(null);
 
 
