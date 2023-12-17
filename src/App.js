@@ -22,24 +22,31 @@ function App() {
 
   const [cgpa, setcgpa] = useState(null); 
 
-  const handleSemesterSubmit = () =>{
-    let sumSem =0;
-    for(const sem of [sem1, sem2, sem3, sem4, sem5]){
-      sumSem += sem;
+  const handleSemesterSubmit = () => {
+    const semesters = [sem1, sem2, sem3, sem4, sem5];
+    const validSemesters = semesters.filter((sem) => sem !== null && sem !== '');
+  
+    if (validSemesters.length === 0) {
+      alert('Please fill at least one semester to calculate CGPA');
+      return;
     }
-    let res = sumSem / 5;
-    setcgpa(res.toFixed(2)); // Display GPA with two decimal places
-  }
-
+  
+    const sumSem = validSemesters.reduce((acc, sem) => acc + parseFloat(sem), 0);
+    const res = sumSem / validSemesters.length;
+    setcgpa(res.toFixed(2)); // Display CGPA with two decimal places
+  };
+  
   const handleSemCheck = () => {
-    for(const sem of [sem1, sem2, sem3, sem4, sem5]){
-      if(sem==='' || sem===null){
-        alert("Please fill all the fields");
+    const semesters = [sem1, sem2, sem3, sem4, sem5];
+    for (const sem of semesters) {
+      if (sem === '' || sem === null) {
+        alert('Please fill all the fields');
         return;
       }
     }
     handleSemesterSubmit();
-  }
+  };
+  
   const handleCheck = () => {
     for (const sub of [sub1, sub2, sub3, sub4, sub5, sub6, sub7]) {
       if(sub===null || sub===""){
@@ -231,56 +238,59 @@ function App() {
         <div className="right-section">
           <h1>CGPA Calculator</h1>
           <form>
+        
             <div>
-            <label htmlFor="semester1">Semester 1:</label>
-            <input
-              type="text"
-              id="semester1"
-              name="semester1"
-              value={sem1}
-              onChange={(e) => setSem1(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="semester1">Semester 1:</label>
-            <input
-              type="text"
-              id="semester1"
-              name="semester1"
-              value={sem1}
-              onChange={(e) => setSem1(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="semester1">Semester 1:</label>
-            <input
-              type="text"
-              id="semester1"
-              name="semester1"
-              value={sem1}
-              onChange={(e) => setSem1(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="semester1">Semester 1:</label>
-            <input
-              type="text"
-              id="semester1"
-              name="semester1"
-              value={sem1}
-              onChange={(e) => setSem1(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="semester1">Semester 1:</label>
-            <input
-              type="text"
-              id="semester1"
-              name="semester1"
-              value={sem1}
-              onChange={(e) => setSem1(e.target.value)}
-            />
-          </div>
+              <label htmlFor="semester1">Semester 1:</label>
+              <input
+                type="number"
+                id="semester1"
+                name="semester1"
+                value={sem1}
+                onChange={(e) => setSem1(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="semester2">Semester 2:</label>
+              <input
+                type="number"
+                id="semester2"
+                name="semester2"
+                value={sem2}
+                onChange={(e) => setSem2(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="semester3">Semester 3:</label>
+              <input
+                type="number"
+                id="semester3"
+                name="semester3"
+                value={sem3}
+                onChange={(e) => setSem3(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="semester4">Semester 4:</label>
+              <input
+                type="number"
+                id="semester4"
+                name="semester4"
+                value={sem4}
+                onChange={(e) => setSem4(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="semester5">Semester 5:</label>
+              <input
+                type="number"
+                id="semester5"
+                name="semester5"
+                value={sem5}
+                onChange={(e) => setSem5(e.target.value)}
+              />
+            </div>
+        
+
             <button type="button" onClick={handleSemCheck}>
               Calculate CGPA
             </button>
