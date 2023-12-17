@@ -23,30 +23,30 @@ function App() {
   const [cgpa, setcgpa] = useState(null); 
 
   const handleSemesterSubmit = () => {
-    const semesters = [sem1, sem2, sem3, sem4, sem5];
-    const validSemesters = semesters.filter((sem) => sem !== null && sem !== '');
-  
-    if (validSemesters.length === 0) {
-      alert('Please fill at least one semester to calculate CGPA');
+  const semesters = [sem1, sem2, sem3, sem4, sem5];
+  const validSemesters = semesters.filter((sem) => sem !== null && sem !== '');
+
+  if (validSemesters.length === 0) {
+    alert('Please fill at least one semester to calculate CGPA');
+    return;
+  }
+
+  const sumSem = validSemesters.reduce((acc, sem) => acc + parseFloat(sem), 0);
+  const res = sumSem / validSemesters.length;
+  setcgpa(res.toFixed(2)); // Display CGPA with two decimal places
+};
+
+const handleSemCheck = () => {
+  const semesters = [sem1, sem2, sem3, sem4, sem5];
+  for (const sem of semesters) {
+    if (sem === '' || sem === null) {
+      alert('Please fill all the fields');
       return;
     }
-  
-    const sumSem = validSemesters.reduce((acc, sem) => acc + parseFloat(sem), 0);
-    const res = sumSem / validSemesters.length;
-    setcgpa(res.toFixed(2)); // Display CGPA with two decimal places
-  };
-  
-  const handleSemCheck = () => {
-    const semesters = [sem1, sem2, sem3, sem4, sem5];
-    for (const sem of semesters) {
-      if (sem === '' || sem === null) {
-        alert('Please fill all the fields');
-        return;
-      }
-    }
-    handleSemesterSubmit();
-  };
-  
+  }
+  handleSemesterSubmit();
+};
+
   const handleCheck = () => {
     for (const sub of [sub1, sub2, sub3, sub4, sub5, sub6, sub7]) {
       if(sub===null || sub===""){
@@ -302,6 +302,9 @@ function App() {
         )}
         </div>
       </div>
+      <footer>
+        <p>&copy; 2023 Hari Prasad. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
