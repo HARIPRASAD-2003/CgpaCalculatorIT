@@ -10,7 +10,7 @@ function App() {
   const [sub5, setSub5] = useState(null);
   const [sub6, setSub6] = useState(null);
   const [sub7, setSub7] = useState(null);
-  const grades = ['O', 'A+', 'A', 'B+', 'B', 'F']; // Add more grades as needed
+  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C','F']; // Add more grades as needed
   const [res, setRes] = useState(null);
 
 
@@ -64,6 +64,7 @@ const handleSemCheck = () => {
       'A': 8,
       'B+': 7,
       'B': 6,
+      'C':5,
       'F': 0,
     };
   
@@ -134,7 +135,7 @@ const handleSemCheck = () => {
           </div>
 
           <div>
-            <label htmlFor="gradeSub2">Fullsatck Web Development:</label>
+            <label htmlFor="gradeSub2">Fullstack Web Development:</label>
             <select
               id="gradeSub2"
               onChange={(e) => setSub2(e.target.value)}
