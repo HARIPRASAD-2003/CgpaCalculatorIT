@@ -17,6 +17,7 @@ function App() {
         </nav>
       </div>
       <Routes>
+        <Route path="/" element={<Sem5/>}/>
         <Route path="/sem5" element={<Sem5/>}/>
         <Route path="/sem4" element={<Sem4/>}/>
         <Route path="/sem3" element={<Sem3/>}/>
