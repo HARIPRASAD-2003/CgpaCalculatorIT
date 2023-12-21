@@ -109,7 +109,7 @@ const handleSemCheck = () => {
           <h1>GPA Calculator</h1>
         <form>
           {subs.map((sub, ind) => (<div key={ind}>
-            <label htmlFor={`gradeSub${ind}`}>{sub}</label>
+            <label htmlFor={`gradeSub${ind}`}>{sub}<br/>credits:{department[subs[ind]]}</label>
             <select
               id={`gradeSub${ind}`}
               onChange={(e) => setSubMark((prevSubMark) => {
