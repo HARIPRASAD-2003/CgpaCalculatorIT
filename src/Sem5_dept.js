@@ -8,13 +8,13 @@ export const CSE = {
     'ES3101 Employability Enhancement Skills - I:':1
 }
 export const IT = {
-    'Computer Networks:': 4,
-    'Fullstack Web Development:': 3,
-    'Distributed Computing:':3,
-    'Embedded System & IOT:':4,
-    'UI & UX Design:':3,
-    'Software Testing & Automation:':3,
-    'Fullstack Web Development Lab:':2
+    'CS3591 Computer Networks:': 4,
+    'IT3501 Fullstack Web Development:': 3,
+    'CS3551 Distributed Computing:':3,
+    'CS3691 Embedded System & IOT:':4,
+    'CCS370 UI & UX Design:':3,
+    'CCS366 Software Testing & Automation:':3,
+    'IT3511 Fullstack Web Development Lab:':2
 }
 export const CSBS = {
     'MA3101 Matrices and Calculus:': 4,

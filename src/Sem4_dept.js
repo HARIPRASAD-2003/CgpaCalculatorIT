@@ -8,14 +8,14 @@ export const CSE = {
     'ES3101 Employability Enhancement Skills - I:':1
 }
 export const IT = {
-    'Theory of Computation:': 3,
-    'Artificial Intelligence & Machine Learning:': 4,
-    'DataBase Management System:':3,
-    'Operating Systems:':3,
-    'Web Essentials:':4,
-    'Environmental Science & Sustainability:':2,
-    'Operating System Lab:':1.5,
-    'DataBase Management System Lab:':1.5,
+    'CS3452 Theory of Computation:': 3,
+    'CS3491 Artificial Intelligence & Machine Learning:': 4,
+    'CS3492 DataBase Management System:':3,
+    'CS3451 Introduction toOperating Systems:':3,
+    'IT3401 Web Essentials:':4,
+    'GE3451 Environmental Science & Sustainability:':2,
+    'CS3461 Operating System Lab:':1.5,
+    'CS3481 DataBase Management System Lab:':1.5,
 }
 export const CSBS = {
     'MA3101 Matrices and Calculus:': 4,
