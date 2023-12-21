@@ -8,14 +8,15 @@ export const CSE = {
     'ES3101 Employability Enhancement Skills - I:':1
 }
 export const IT = {
-    'Theory of Computation:': 3,
-    'Artificial Intelligence & Machine Learning:': 4,
-    'DataBase Management System:':3,
-    'Operating Systems:':3,
-    'Web Essentials:':4,
-    'Environmental Science & Sustainability:':2,
-    'Operating System Lab:':1.5,
-    'DataBase Management System Lab:':1.5,
+    'MA3354 Discrete Mathematics:': 4,
+    'CS3351 Digital Principles and Computer Organization:': 4,
+    'CS3352 Foundations of Data Science :':3,
+    'CD3291 Data Structures and Algorithms:':3,
+    'CS3391 Object Oriented Programming:':3,
+    'CD3281 Data Structures and Algorithms Laboratory:':2,
+    'CS3381 Object Oriented Programming Laboratory:':1.5,
+    'CS3361 Data Science Laboratory:':2,
+    'GE3361 Professional Development:':1,
 }
 export const CSBS = {
     'MA3101 Matrices and Calculus:': 4,

@@ -7,53 +7,60 @@ const Sem3 = () => {
   const [deptName, setD] = useState("Select Department");
   const grades = ['O', 'A+', 'A', 'B+', 'B', 'C', 'RA']; 
   const [res, setRes] = useState(null);
-  const subs = Object.keys(department)
-  const subMark = new Array(subs.length);
+  let subs = Object.keys(department)
+  const [subMark, setSubMark] = useState(new Array(department.length).fill(0));
 
-  const semMark = new Array(semester.length);
-  const [sem1, setSem1] = useState('');
+  const [semMark, setSemMark] = useState(new Array(semester.length).fill(-1));
 
   const [cgpa, setcgpa] = useState(null); 
 
+  
   const handleSemesterSubmit = () => {
-    // const semesters = [sem1];//, sem2, sem3, sem4];
-    const validSemesters = semMark.filter((sem) => sem !== null && sem !== '');
+    let validSemesters = semMark.filter((sem) => sem !== null && sem !== '');
 
     if (validSemesters.length === 0) {
       alert('Please fill at least one semester to calculate CGPA');
       return;
     }
 
-    const sumSem = validSemesters.reduce((acc, sem) => acc + parseFloat(sem), 0);
-    const res = sumSem / validSemesters.length;
-    setcgpa(res.toFixed(2)); // Display CGPA with two decimal places
+    let sumSem = validSemesters.reduce((acc, sem) => acc + parseFloat(sem), 0);
+    let ress = sumSem / validSemesters.length;
+    setcgpa(ress.toFixed(2));
   };
 
 const handleSemCheck = () => {
-  // const semesters = [sem1,];// sem2, sem3, sem4];
-  for (const sem of semMark) {
-    if (sem === '' || sem === null) {
+  
+  for (let i=0; i<semMark.length; i++) {
+    const sem = semMark[i];
+    if (sem === -1 || sem === null) {
       alert('Please fill all the fields');
       return;
-    } else if(0>sem && sem>10){
+    } else if(0>sem || sem>10){
       alert("Please enter Valid Data");
+      return;
     }
   }
   handleSemesterSubmit();
 };
 
   const handleCheck = () => {
-    for (const sub of subMark) {
-      if(sub===null || sub===""){
-        alert("Please fill all fields");
+    console.log(subMark, Object.keys(department).length);
+    if(subMark.length!==Object.keys(department).length){
+      alert('Please fill all the fields');
+      return;
+    };
+    for (let i=0; i<subMark.length; i++) {
+      const sub = subMark[i];
+      console.log(sub);
+      if (sub === 0 || sub === null || sub==='') {
+        alert('Please fill all the fields');
         return;
-      } 
+      }
     }
     handleSubmit();
   }
   const handleSubmit = () => {
-    // Map grades to corresponding numerical values
-    const gradeValues = {
+    let gradeValues = {
       'O': 10,
       'A+': 9,
       'A': 8,
@@ -62,32 +69,21 @@ const handleSemCheck = () => {
       'C': 5,
       'RA': 0,
     };
-  
-    // Define credits for each subject
-    
-  
-    // Calculate sum of numerical values * credits for all subjects
     let gradeSum = 0;
     let creditSum = 0;
   
-    // Loop through each subject
-    let i=0;
-    for (const sub of subMark) {
-      // If the user got an 'F', don't consider that subject for GPA
-      
-      if (sub !== 'RA') {
+    for (let i=0; i<subMark.length; i++) {
+      let sub = subMark[i];
+      if (sub !== "RA") {
         gradeSum += gradeValues[sub] * department[subs[i]];
-        creditSum += department[subs[i]]; //credits[`sub${i}`];
-        console.log(department[subs[i]]);
+        creditSum += department[subs[i]];
+        console.log(sub);
       }
-      i++;
     }
   
-    // Calculate GPA as the weighted average
-    const gpa = gradeSum / creditSum;
+    let gpa = gradeSum / creditSum;
   
-    // Set the result in state
-    setRes(gpa.toFixed(2)); // Display GPA with two decimal places
+    setRes(gpa.toFixed(2));
   };
   
   
@@ -116,7 +112,11 @@ const handleSemCheck = () => {
             <label htmlFor={`gradeSub${ind}`}>{sub}</label>
             <select
               id={`gradeSub${ind}`}
-              onChange={(e) => subMark[ind]=e.target.value}
+              onChange={(e) => setSubMark((prevSubMark) => {
+                const newSubMark = [...prevSubMark];
+                newSubMark[ind] = e.target.value;
+                return newSubMark;
+              })}
               value={subMark[ind]}
             >
               <option value="">Select Grade</option>
@@ -151,8 +151,12 @@ const handleSemCheck = () => {
                 type="number"
                 id={sem}
                 name={sem}
-                value={semMark[ind]}
-                onChange={(e) => semMark[ind]=e.target.value}
+                value={semMark[ind]<0?null:semMark[ind]}
+                onChange={(e) => setSemMark((prevSemMark) => {
+                  const newSemMark = [...prevSemMark];
+                  newSemMark[ind] = e.target.value;
+                  return newSemMark;
+                })}
               />
             </div>))}
             
