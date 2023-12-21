@@ -12,7 +12,7 @@ function App() {
           <div>
             <Link to="/sem5">Sem - 5</Link>
             <Link to="/sem4">Sem - 4</Link>
-            {/* <Link to="/sem3">Sem - 3</Link> */}
+            <Link to="/sem3">Sem - 3</Link>
           </div>
         </nav>
       </div>
