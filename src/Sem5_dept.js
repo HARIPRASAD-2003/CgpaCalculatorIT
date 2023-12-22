@@ -1,11 +1,10 @@
 export const CSE = {
-    'MA3101 Matrices and Calculus:': 4,
-    'CS3201 Application Development Practices:': 4,
-    'PH3101 Engineering Physics:':4,
-    'HS3102 Communicative English - I:':4,
-    'CS3102 Problem Solving using C++ Programming:':4,
-    'CY3101 Engineering Chemistry:':4,
-    'ES3101 Employability Enhancement Skills - I:':1
+    'CS3591 Computer Networks:': 4,
+    'CB3491 Cryptography and Cyber Security:': 3,
+    'CS3551 Distributed Computing:':3,
+    'CS3501 Compiler Design :':4,
+    'CCS370 UI & UX Design:':3,
+    'CCS375 Web Technology:':3,
 }
 export const IT = {
     'CS3591 Computer Networks:': 4,
@@ -121,7 +120,7 @@ export const dept = {
     "Select Department":{}
 }
 export const deptNames = [
-    // "Computer Science & Engineering",
+    "Computer Science & Engineering",
     "Information Technology",
     // "Computer Science & Businness Systems",
     // "Artificial Inteligence & Data Science",
