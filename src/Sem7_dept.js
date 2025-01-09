@@ -119,7 +119,7 @@ export const dept = {
     "Select Department":{}
 }
 export const deptNames = [
-    "Computer Science & Engineering",
+    // "Computer Science & Engineering",
     "Information Technology",
     // "Computer Science & Businness Systems",
     // "Artificial Inteligence & Data Science",
